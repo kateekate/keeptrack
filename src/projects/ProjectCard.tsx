@@ -1,13 +1,15 @@
 import React from "react";
 import { Project } from "./Project";
 
-interface ProjectListProps {
+interface ProjectCardProps {
   project: Project;
+  onEdit: (project: Project) => void;
 }
 
-function ProjectCard({ project }: ProjectListProps) {
+function ProjectCard(props: ProjectCardProps) {
+  const { project, onEdit } = props;
   function handleEditClicked(projectBeingEdited: Project) {
-    console.log(projectBeingEdited);
+    onEdit(projectBeingEdited);
   }
   return (
     <div className="card">
